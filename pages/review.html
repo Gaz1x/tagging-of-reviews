@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы владельцев об автомобилях — Дром</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dromRed: '#db1d24',
+                        dromBlue: '#2b87db',
+                        dromBlueHover: '#2272bc',
+                        dromGreen: '#78a531',
+                        pageBg: '#000000',
+                        panelBg: '#1c1c1e',
+                        inputBg: '#2c2c2e',
+                        pillBg: '#242426',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Inter', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-pageBg font-sans text-white min-h-screen antialiased">
+
+    <!-- Тонкая верхняя панель управления прототипом (для переключения режимов теста) -->
+    <div class="border-b border-neutral-900 bg-[#0d0d0d]">
+        <div class="max-w-[1040px] mx-auto px-4 h-11 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2.5">
+                <span class="bg-dromRed text-white font-bold px-2 py-0.5 rounded text-[11px] tracking-wider">ДРОМ</span>
+                <span class="text-neutral-500">Прототип списка отзывов</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="text-neutral-400 hover:text-white underline transition">Сменить режим</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-[1040px] mx-auto px-4 py-8">
+
+        <section id="cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
+        </section>
+
+    </main>
+
+    <script>
+
+        const REVIEWS_JSON = [
+            {
+                id: "lada-niva-1994",
+                carTitle: "Лада Нива Легенд, 1994",
+                rating: "4.7",
+                ratingBg: "bg-black/75",
+                cardBg: "bg-[#4f6461]",
+                hasPhoto: false,
+                excerpt: "В основном 450 тыщ км пробегаэто суровая эксплуатация по лесам, болотам и зимникам. Мотор капиталил дважды, раздатка гудит с завода...",
+                tags: ["Двигатель", "Ходовая", "Зима и расход", "Обслуживание"]
+            },
+            {
+                id: "tank-300-2026",
+                carTitle: "Tank 300, 2026",
+                rating: "3.5",
+                ratingBg: "bg-neutral-500/70",
+                cardBg: "bg-[#6e5641]",
+                hasPhoto: false,
+                excerpt: "Уважаемые автолюбители. Хочу поделиться первыми впечатлениями после 15 000 км пробега. Покупал новым у дилера, до этого владел Prado 150...",
+                tags: ["Покупка", "КПП", "Расход", "Интерьер"]
+            },
+            {
+                id: "geely-vision-x6-2022",
+                carTitle: "Geely Vision X6 Pro, 2022",
+                rating: "4.8",
+                ratingBg: "bg-dromRed",
+                cardBg: "bg-[#25282c]",
+                hasPhoto: false,
+                excerpt: "За руль данного автомобиля я сел 02.08.2026, привезен он был под заказ из Китая автовозом через Уссурийск. По подвеске и вариатору вопросов нет...",
+                tags: ["Покупка", "Комплектация", "Двигатель и КПП", "Ходовые качества"]
+            }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const mode = urlParams.get('mode') === 'tags' ? 'tags' : 'plain';
+
+        const CAR_PLACEHOLDER_SVG = `
+            <svg viewBox="0 0 220 110" class="w-40 h-20 stroke-white/35 fill-none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 72 L18 65 L20 45 L32 42 L42 22 L125 22 L152 40 L195 44 L202 58 L200 72 L182 72" />
+                <path d="M62 72 L144 72" />
+                <circle cx="44" cy="72" r="16" />
+                <circle cx="44" cy="72" r="7" />
+                <circle cx="164" cy="72" r="16" />
+                <circle cx="164" cy="72" r="7" />
+                <path d="M48 27 L82 27 L82 42 L39 42 Z" />
+                <path d="M90 27 L122 27 L142 42 L90 42 Z" />
+                <line x1="16" y1="35" x2="16" y2="52" />
+            </svg>
+        `;
+
+        const grid = document.getElementById('cards-grid');
+
+        REVIEWS_JSON.forEach(item => {
+            const card = document.createElement('article');
+            card.className = `${item.cardBg} rounded-2xl overflow-hidden flex flex-col justify-between min-h-[340px] relative select-none`;
+            card.classList.add('cursor-pointer');
+            card.addEventListener('click', () => {
+                window.location.href = `detail.html?id=${item.id}&mode=${mode}`;
+            });
+            const tagsBlock = (mode === 'tags' && item.tags && item.tags.length > 0)
+                ? `<div class="flex flex-wrap gap-1.5 mt-3 pt-2.5 border-t border-white/15">
+                    ${item.tags.map(tag => `<span class="bg-black/30 text-white/90 text-[11px] px-2 py-0.5 rounded-md">#${tag}</span>`).join('')}
+                   </div>`
+                : '';
+
+            card.innerHTML = `
+                <!-- Верхняя панель с бейджами -->
+                <div class="p-3.5 flex items-center justify-between z-10">
+                    <span class="${item.ratingBg} text-white text-xs font-bold px-2.5 py-1 rounded-lg">
+                        ${item.rating}
+                    </span>
+                </div>
+
+                <!-- Центральный силуэт автомобиля -->
+                <div class="flex-1 flex items-center justify-center py-4">
+                    ${CAR_PLACEHOLDER_SVG}
+                </div>
+
+                <!-- Нижний текстовый блок с градиентом -->
+                <div class="p-4 pt-6 bg-gradient-to-t from-black/60 via-black/25 to-transparent">
+                    <h2 class="text-[16px] font-bold text-white leading-snug mb-1.5">
+                        ${item.carTitle}
+                    </h2>
+                    <p class="text-[13px] text-white/85 leading-snug line-clamp-2">
+                        ${item.excerpt}
+                    </p>
+                    ${tagsBlock}
+                </div>
+            `;
+
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВАЗ Niva Legend 1994 — отзыв владельца — Дром</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dromRed: '#db1d24',
+                        dromBlue: '#2b87db',
+                        dromBlueHover: '#2272bc',
+                        dromGreen: '#78a531',
+                        pageBg: '#000000',
+                        panelBg: '#1c1c1e',
+                        inputBg: '#2c2c2e',
+                        pillBg: '#242426',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Inter', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Мягкая подсветка фрагмента в сплошном тексте при переходе по тегу */
+        @keyframes textHighlight {
+            0% {
+                background-color: rgba(219, 29, 36, 0.38);
+                box-shadow: 0 0 0 4px rgba(219, 29, 36, 0.25);
+            }
+            70% {
+                background-color: rgba(219, 29, 36, 0.2);
+                box-shadow: 0 0 0 4px rgba(219, 29, 36, 0.12);
+            }
+            100% {
+                background-color: transparent;
+                box-shadow: 0 0 0 4px transparent;
+            }
+        }
+        .highlight-span {
+            border-radius: 4px;
+            animation: textHighlight 2.2s ease-out forwards;
+        }
+        /* Аккуратный тонкий скроллбар для мобильной ленты тегов */
+        .tags-scroll::-webkit-scrollbar {
+            height: 3px;
+        }
+        .tags-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .tags-scroll::-webkit-scrollbar-thumb {
+            background: #3f3f46;
+            border-radius: 9999px;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-pageBg font-sans text-white min-h-screen antialiased">
+
+    <!-- 1. ШАПКА 1-В-1 КАК В review.html -->
+    <div class="border-b border-neutral-900 bg-[#0d0d0d] sticky top-0 z-30">
+        <div class="max-w-[1040px] mx-auto px-4 h-11 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2.5">
+                <a href="review.html" id="logo-link" class="bg-dromRed text-white font-bold px-2 py-0.5 rounded text-[11px] tracking-wider">
+                    ДРОМ
+                </a>
+                <a href="review.html" id="back-link" class="text-neutral-400 hover:text-white transition">
+                    ← К списку отзывов
+                </a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="text-neutral-400 hover:text-white underline transition">Сменить режим</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ОСНОВНОЙ КОНТЕЙНЕР -->
+    <main class="max-w-[1040px] mx-auto px-4 py-5 sm:py-7">
+
+        <!-- Хлебные крошки -->
+        <nav class="flex items-center gap-1.5 text-[11px] text-blue-400 whitespace-nowrap overflow-x-auto no-scrollbar mb-3">
+            <a href="review.html" id="crumb-home" class="hover:underline">Дром</a>
+            <span class="text-neutral-600">›</span>
+            <a href="review.html" id="crumb-reviews" class="hover:underline">Отзывы</a>
+            <span class="text-neutral-600">›</span>
+            <a href="#" class="hover:underline">Лада</a>
+            <span class="text-neutral-600">›</span>
+            <a href="#" class="hover:underline">Нива Легенд</a>
+            <span class="text-neutral-600">›</span>
+            <a href="#" class="hover:underline">1994</a>
+            <span class="text-neutral-600">›</span>
+            <span class="text-neutral-400" id="breadcrumb-title">Отзыв автовладельца Лада Нива Легенд 1994</span>
+        </nav>
+
+        <!-- Сетка: слева контент отзыва (8 колонок на ПК), справа список тегов (4 колонки на ПК) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- ЛЕВАЯ КОЛОНКА: ОТЗЫВ -->
+            <div class="lg:col-span-8">
+                <!-- Заголовок -->
+                <h1 id="review-title" class="text-[24px] sm:text-[28px] font-bold text-white leading-tight mb-3">
+                    ВАЗ Niva Legend 1994 — отзыв владельца
+                </h1>
+
+                <!-- Автор и просмотры -->
+                <div class="text-xs text-neutral-400 space-y-1 mb-4">
+                    <div id="review-author">38240994, Краснодар</div>
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        <span id="review-views">396</span>
+                    </div>
+                </div>
+
+                <!-- Блок оценки -->
+                <div class="flex items-start justify-between gap-3 mb-5">
+                    <div>
+                        <div class="text-xs text-neutral-300 mb-2">Оцените отзыв:</div>
+                        <div class="flex items-center gap-1.5 mb-2.5">
+                            <button type="button" class="w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-[#6e6e73] text-sm font-medium text-white">1</button>
+                            <button type="button" class="w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-[#6e6e73] text-sm font-medium text-white">2</button>
+                            <button type="button" class="w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-[#6e6e73] text-sm font-medium text-white">3</button>
+                            <button type="button" class="w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-[#2c2c2e] text-sm font-medium text-neutral-200">4</button>
+                            <button type="button" class="w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-dromRed text-sm font-bold text-white">5</button>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="bg-dromRed text-white font-bold w-5 h-5 rounded flex items-center justify-center text-[11px]">5</span>
+                            <span class="text-neutral-400">— 8 пятерок</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#242426] rounded-xl px-3.5 py-2 text-center shrink-0 mt-1">
+                        <div class="text-[10px] text-neutral-300 leading-tight">9<br>голосов</div>
+                        <div id="review-rating" class="text-xl font-bold text-white leading-tight mt-0.5">4.7</div>
+                    </div>
+                </div>
+
+                <!-- Блок: Картинка-заглушка + Характеристики -->
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-5 mb-5 items-start">
+                    <div class="sm:col-span-6 bg-[#18181a] rounded-xl aspect-[16/10] sm:aspect-[4/3] flex items-center justify-center border border-neutral-900">
+                        <svg viewBox="0 0 220 110" class="w-44 h-24 stroke-neutral-500 fill-none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 72 L18 65 L20 45 L32 42 L42 22 L125 22 L152 40 L195 44 L202 58 L200 72 L182 72" />
+                            <path d="M62 72 L144 72" />
+                            <circle cx="44" cy="72" r="16" />
+                            <circle cx="44" cy="72" r="7" />
+                            <circle cx="164" cy="72" r="16" />
+                            <circle cx="164" cy="72" r="7" />
+                            <path d="M48 27 L82 27 L82 42 L39 42 Z" />
+                            <path d="M90 27 L122 27 L142 42 L90 42 Z" />
+                            <line x1="16" y1="35" x2="16" y2="52" />
+                        </svg>
+                    </div>
+
+                    <div class="sm:col-span-6 text-[13px] sm:text-xs">
+                        <div id="specs-header" class="text-blue-400 mb-3 font-medium">
+                            Характеристики Лада Нива Легенд ⌃
+                        </div>
+                        <dl id="specs-list" class="space-y-2.5 sm:space-y-1.5">
+                            <!-- Рендерится из JS -->
+                        </dl>
+                        <div class="text-blue-400 mt-3 cursor-pointer hover:underline">
+                            Оценка автомобиля 7.8 ⌄
+                        </div>
+                    </div>
+                </div>
+
+                <!-- МОБИЛЬНАЯ ПАНЕЛЬ ТЕГОВ:
+                     Стоит после характеристик авто. Когда доезжает до верха экрана (top-11), прилипает сверху.
+                     Горизонтальный скролл влево-вправо (overflow-x-auto) с плавным затуханием справа -->
+                <div id="mobile-tags-bar"
+                    class="hidden lg:hidden sticky top-11 z-20 bg-pageBg/95 backdrop-blur border-y border-neutral-800/90 -mx-4 px-4 py-2.5 mb-4">
+                    <div id="mobile-tags-list"
+                        class="no-scrollbar flex items-center gap-2 overflow-x-auto touch-pan-x">
+                        <!-- Чипсы рендерятся из JS -->
+                    </div>
+                </div>
+
+                <!-- СПЛОШНОЙ ТЕКСТ ОТЗЫВА (Никаких инлайн-блоков, только подсветка по якорю) -->
+                <article id="review-text-body" class="text-[15px] leading-[1.72] text-neutral-200 space-y-5 pt-2 border-t border-neutral-900">
+                    <!-- Параграфы и спаны рендерятся из JSON -->
+                </article>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: КЛАССИЧЕСКИЙ СПИСОК ТЕГОВ (Desktop, только при mode=tags) -->
+            <aside id="desktop-tags-box" class="hidden lg:block lg:col-span-4 sticky top-16">
+                <div class="bg-panelBg border border-neutral-800 rounded-2xl p-4">
+                    <div class="text-xs font-semibold uppercase tracking-wider text-neutral-400 pb-2.5 mb-2.5 border-b border-neutral-800">
+                        Теги в тексте
+                    </div>
+
+                    <nav id="desktop-tags-list" class="space-y-1">
+                        <!-- Кнопки-якоря в чистом прошлом стиле -->
+                    </nav>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <script>
+        // ========================================================
+        // ЗАХАРДКОЖЕННЫЙ JSON С ПОДДЕРЖКОЙ НЕСКОЛЬКИХ ТЕГОВ НА ФРАГМЕНТ
+        // ========================================================
+        const REVIEW_DETAIL_JSON = {
+            id: "lada-niva-1994",
+            title: "ВАЗ Niva Legend 1994 — отзыв владельца",
+            breadcrumb: "Отзыв автовладельца Лада Нива Легенд 1994",
+            authorMeta: "38240994, Краснодар",
+            views: "396",
+            rating: "4.7",
+            specsHeader: "Характеристики Лада Нива Легенд ⌃",
+            specs: [
+                { label: "Год выпуска", value: "1994" },
+                { label: "Двигатель", value: "Бензин, 0.5 л, 90 л.с." },
+                { label: "Трансмиссия", value: "Механическая" },
+                { label: "Привод", value: "4WD" },
+                { label: "Тип кузова", value: "Джип" },
+                { label: "Руль", value: "Левый" },
+                { label: "Пробег", value: "456 097 км" }
+            ],
+            paragraphs: [
+                [
+                    {
+                        id: "frag-intro",
+                        tags: [],
+                        text: "Всем привет! Решил дополнить отзыв после очередного большого сезона. Машина в одних руках уже много лет, бралась осознанно как рабочая лошадка для выездов на природу и ежедневных поездок без страха за бампера. "
+                    },
+                    {
+                        id: "frag-usage",
+                        tags: ["Эксплуатация", "Проходимость"],
+                        text: "В основном 450 тыщ км пробега — это для Нивы нормальный пробег, если за техникой следить и не запускать мелочи. Ездил на рыбалку, в города и курорты, по лесам, горным грунтовкам и раскисшим полям машина идет уверенно, геометрическая проходимость прощает почти любые ошибки водителя."
+                    }
+                ],
+                [
+                    {
+                        id: "frag-engine",
+                        tags: ["Двигатель", "Доработки"],
+                        text: "Капитальный ремонт мотора был на 250к км: расточили блок, поставили новую поршневую группу, обновили цепь и успокоители — после этого движок работает ровно и масло от замены до замены практически не берет. Прокачал ещё двигло до 90 лошадок хе-хе, поставил низовой распредвал и доработал впуск, тянуть с низов стала заметно бодрее, в затяжные подъемы теперь захожу без постоянного переключения вниз."
+                    }
+                ],
+                [
+                    {
+                        id: "frag-winter",
+                        tags: ["Зима и печка", "Расход топлива"],
+                        text: "Зимой печка греет достойно, салон прогревается быстро даже в минус двадцать, но родной краник отопителя лучше сразу менять на керамический, чтобы не потек в самый неподходящий момент. По расходу топлива чудес ждать не стоит: по трассе при крейсерских 85–90 км/ч укладывается в 9.5–10 литров, в городе с прогревами и полным приводом выходит около 13–14 литров, а в тяжелой грязи на понижайке стрелка падает на глазах."
+                    }
+                ],
+                [
+                    {
+                        id: "frag-body",
+                        tags: ["Кузов и оптика"],
+                        text: "По кузову за тридцать с лишним лет, конечно, накопились боевые шрамы: есть 2 вмятины на переднем крыле от веток и трещина на лобовухе от камня с трассы. Мародёры украли 1 фару (на 290к км пробега на момент кражи), поставил новую, но подумал, что надо ещё одну поменять, а то 1 завод, а другая с магазина — пучок света отличается. Также поставил на крыше мощный экспедиционный багажник для лодки и канистр."
+                    }
+                ],
+                [
+                    {
+                        id: "frag-suspension",
+                        tags: ["Ходовая и КПП", "Обслуживание"],
+                        text: "Поставил усиленный полный привод с новыми шрусами вместо крестовин и перебрал раздатку с подрамником (мастера за 90к всё сделали под ключ, гул и вибрации на 80 км/ч ушли почти полностью). Сцепление поставил от Шевроле Нивы — педаль стала мягче и ходит оно в два раза дольше стандартного."
+                    }
+                ],
+                [
+                    {
+                        id: "frag-outro",
+                        tags: ["Итоги владения"],
+                        text: "Больше не о чем говорить... А хотя. У меня вопрос к вам, мужики: у вас тоже руль чуть-чуть вправо уходит (леворулька) после замены маятника на подшипниках или нужно снова заехать на стенд сход-развала? В целом машиной доволен на все сто, за эти деньги альтернатив по проходимости просто нет. Ну а так всё, всем пока народ!!"
+                    }
+                ]
+            ]
+        };
+
+        // ========================================================
+        // ИНИЦИАЛИЗАЦИЯ СТРАНИЦЫ И РЕЖИМА (?mode=tags | ?mode=plain)
+        // ========================================================
+        const params = new URLSearchParams(window.location.search);
+        const mode = params.get('mode') === 'tags' ? 'tags' : 'plain';
+
+        const listUrl = `review.html?mode=${mode}`;
+        document.getElementById('logo-link').href = listUrl;
+        document.getElementById('back-link').href = listUrl;
+        document.getElementById('crumb-home').href = listUrl;
+        document.getElementById('crumb-reviews').href = listUrl;
+
+        document.getElementById('review-title').textContent = REVIEW_DETAIL_JSON.title;
+        document.getElementById('breadcrumb-title').textContent = REVIEW_DETAIL_JSON.breadcrumb;
+        document.getElementById('review-author').textContent = REVIEW_DETAIL_JSON.authorMeta;
+        document.getElementById('review-views').textContent = REVIEW_DETAIL_JSON.views;
+        document.getElementById('review-rating').textContent = REVIEW_DETAIL_JSON.rating;
+        document.getElementById('specs-header').textContent = REVIEW_DETAIL_JSON.specsHeader;
+
+        const specsList = document.getElementById('specs-list');
+        REVIEW_DETAIL_JSON.specs.forEach(spec => {
+            const row = document.createElement('div');
+            row.className = 'grid grid-cols-12 gap-2';
+            row.innerHTML = `
+                <dt class="col-span-6 text-neutral-400">${spec.label}</dt>
+                <dd class="col-span-6 text-neutral-200 font-medium">${spec.value}</dd>
+            `;
+            specsList.appendChild(row);
+        });
+
+        // ========================================================
+        // РЕНДЕР СПЛОШНОГО ТЕКСТА И СБОР ВСЕХ ТЕГОВ
+        // ========================================================
+        const textBody = document.getElementById('review-text-body');
+        const tagItems = []; // Список пар { tag, targetId }
+
+        REVIEW_DETAIL_JSON.paragraphs.forEach(paragraph => {
+            const p = document.createElement('p');
+            paragraph.forEach(fragment => {
+                const span = document.createElement('span');
+                span.id = fragment.id;
+                span.textContent = fragment.text;
+                span.className = 'scroll-mt-32 transition-colors';
+                p.appendChild(span);
+
+                if (Array.isArray(fragment.tags)) {
+                    fragment.tags.forEach(tagName => {
+                        tagItems.push({ tag: tagName, targetId: fragment.id });
+                    });
+                }
+            });
+            textBody.appendChild(p);
+        });
+
+        // ========================================================
+        // РЕНДЕР ТЕГОВ В ПРОШЛОМ ЧИСТОМ СТИЛЕ (БЕЗ АКТИВНОГО СОСТОЯНИЯ ПРИ СКРОЛЛЕ)
+        // ========================================================
+        const desktopBox = document.getElementById('desktop-tags-box');
+        const mobileBar = document.getElementById('mobile-tags-bar');
+
+        if (mode === 'tags' && tagItems.length > 0) {
+            desktopBox.classList.remove('lg:hidden');
+            mobileBar.classList.remove('hidden');
+
+            const desktopList = document.getElementById('desktop-tags-list');
+            const mobileList = document.getElementById('mobile-tags-list');
+
+            tagItems.forEach(item => {
+                // Десктопная кнопка-якорь (чистый прошлый стиль)
+                const dBtn = document.createElement('button');
+                dBtn.type = 'button';
+                dBtn.textContent = item.tag;
+                dBtn.className = 'w-full text-left px-3 py-2 rounded-lg text-sm text-neutral-300 hover:bg-[#28282b] hover:text-white active:text-dromRed transition';
+                dBtn.addEventListener('click', () => scrollToAndHighlight(item.targetId));
+                desktopList.appendChild(dBtn);
+
+                // Мобильный чипс-якорь (горизонтально скроллящийся)
+                const mBtn = document.createElement('button');
+                mBtn.type = 'button';
+                mBtn.textContent = `#${item.tag}`;
+                mBtn.className = 'shrink-0 px-3 py-1.5 rounded-full text-xs font-medium bg-[#242426] hover:bg-[#2f2f33] active:bg-dromRed active:text-white text-neutral-200 border border-neutral-800 transition';
+                mBtn.addEventListener('click', () => scrollToAndHighlight(item.targetId));
+                mobileList.appendChild(mBtn);
+            });
+        } else {
+            desktopBox.classList.add('lg:hidden');
+            mobileBar.classList.add('hidden');
+        }
+
+        // Якорный скролл + временная подсветка фрагмента текста по клику
+        function scrollToAndHighlight(fragmentId) {
+            const target = document.getElementById(fragmentId);
+            if (!target) return;
+
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Перезапускаем анимацию подсветки
+            target.classList.remove('highlight-span');
+            void target.offsetWidth;
+            target.classList.add('highlight-span');
+        }
+    </script>
+</body>
+</html>
